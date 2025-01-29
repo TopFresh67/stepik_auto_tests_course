@@ -1,10 +1,11 @@
-from selenium import webdriver
+from selenium import webdriver 
 from selenium.webdriver.common.by import By
 import time
 import unittest
 
 
 class TestLesson3(unittest.TestCase):
+
     def test_link1(self):
         def input_data():
             input_first_name = browser.find_element(
@@ -43,18 +44,17 @@ class TestLesson3(unittest.TestCase):
             # с помощью assert проверяем, что ожидаемый текст совпадает с текстом на странице сайта
             assert "Congratulations! You have successfully registered!" == welcome_text
 
-        try:
-            # сделал в одном тесте проверку обеих ссылок, хоть так и не делают обычно
-            browser = webdriver.Chrome()
-            browser.get("https://suninjuly.github.io/registration1.html")
-            input_data()
-            check_result()
+        
+        browser = webdriver.Chrome()
+        browser.get("https://suninjuly.github.io/registration1.html")
+        input_data()
+        check_result()
 
-        finally:
-            # ожидание чтобы визуально оценить результаты прохождения скрипта
-            time.sleep(10)
-            # закрываем браузер после всех манипуляций
-            browser.quit()
+        
+        # ожидание чтобы визуально оценить результаты прохождения скрипта
+        time.sleep(5)
+        # закрываем браузер после всех манипуляций
+        browser.quit()
 
     def test_link2(self):
         def input_data1():
@@ -92,23 +92,16 @@ class TestLesson3(unittest.TestCase):
                 welcome_text = welcome_text_elt.text
 
                 # с помощью assert проверяем, что ожидаемый текст совпадает с текстом на странице сайта
-                assert (
-                    "Congratulations! You have successfully registered!" == welcome_text
-                )
+                assert "Congratulations! You have successfully registered!" == welcome_text
 
-            try:
-                # сделал в одном тесте проверку обеих ссылок, хоть так и не делают обычно
-                browser = webdriver.Chrome()
-                browser.get("https://suninjuly.github.io/registration2.html")
-                input_data1()
-                check_result1()
-
-            finally:
-                # ожидание чтобы визуально оценить результаты прохождения скрипта
-                time.sleep(10)
-                # закрываем браузер после всех манипуляций
-                browser.quit()
-
+        browser = webdriver.Chrome()
+        browser.get("https://suninjuly.github.io/registration2.html")
+        input_data1()
+        check_result1()
+        # ожидание чтобы визуально оценить результаты прохождения скрипта
+        time.sleep(5)
+        # закрываем браузер после всех манипуляций
+        browser.quit()
 
 if __name__ == "__main__":
     unittest.main()
