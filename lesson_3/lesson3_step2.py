@@ -49,10 +49,6 @@ class TestLesson3(unittest.TestCase):
         browser.get("https://suninjuly.github.io/registration1.html")
         input_data()
         check_result()
-
-        
-        # ожидание чтобы визуально оценить результаты прохождения скрипта
-        time.sleep(5)
         # закрываем браузер после всех манипуляций
         browser.quit()
 
@@ -97,9 +93,7 @@ class TestLesson3(unittest.TestCase):
         browser = webdriver.Chrome()
         browser.get("https://suninjuly.github.io/registration2.html")
         input_data1()
-        check_result1()
-        # ожидание чтобы визуально оценить результаты прохождения скрипта
-        time.sleep(5)
+        check_result1() # type: ignore
         # закрываем браузер после всех манипуляций
         browser.quit()
 
